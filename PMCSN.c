@@ -94,7 +94,7 @@ int main()
 //                area_cloud += diff*(task1_rim_cloud+task2_rim_cloud);
 
                 t1->completion = t1->arrival + GetService1_cloud();
-                if(task1_completion_cloud == INFINITO || task1_completion_cloud > t1->completion)
+                if(task1_completion_cloud > t1->completion)
                 {
                     task1_completion_cloud = t1->completion;
                 }
@@ -107,7 +107,7 @@ int main()
             {
                 t1->completion = t1->arrival + GetService1_cloudlet();
 //                area_cloudlet += diff*(task1_rim_cloudlet+task2_rim_cloudlet);
-                if(task1_completion_cloudlet == INFINITO || task1_completion_cloudlet > t1->completion)
+                if( task1_completion_cloudlet > t1->completion)
                 {
                     task1_completion_cloudlet = t1->completion;
                 }
@@ -122,7 +122,7 @@ int main()
 //                printf("%d\n",task1_rim_cloud+task2_rim_cloud);
 
                 t1->completion = t1->arrival + GetService1_cloudlet();
-                if(task1_completion_cloudlet == INFINITO || task1_completion_cloudlet > t1->completion)
+                if(task1_completion_cloudlet > t1->completion)
                 {
                     task1_completion_cloudlet = t1->completion;
                 }
@@ -147,7 +147,7 @@ int main()
                 num_task2_compl_cloudlet += percentuale_elab_task;
                 p->perc_rim = 1 - percentuale_elab_task;
                 p->completion = t_current + (GetService2_cloud()*p->perc_rim) + SETUP;
-                if(task2_completion_cloud == INFINITO || task2_completion_cloud > p->completion)
+                if( task2_completion_cloud > p->completion)
                 {
                     task2_completion_cloud = p->completion;
                 }
@@ -163,10 +163,6 @@ int main()
                 insert_sorted_list(t1, &list_head_cloudlet_1);
                 insert_sorted_list(new, &list_head_cloud_2);
                 remove_central_task(p,&list_head_cloudlet_2);
-//
-//                        if(list_head_cloudlet_2==NULL){
-//                            task2_completion_cloudlet=INFINITO;
-//                        }
 
                 num_task1_cloudlet++;
                 num_task2_cloud++;
@@ -178,7 +174,7 @@ int main()
             {
 //                area_cloudlet += diff*(task1_rim_cloudlet+task2_rim_cloudlet);
                 t1->completion = t1->arrival + GetService1_cloudlet();
-                if(task1_completion_cloudlet == INFINITO || task1_completion_cloudlet > t1->completion)
+                if( task1_completion_cloudlet > t1->completion)
                 {
                     task1_completion_cloudlet= t1->completion;
                 }
@@ -203,7 +199,7 @@ int main()
 //                area_cloud += diff*(task1_rim_cloud+task2_rim_cloud);
 //                        printf("cloud\n");
                 t2->completion = t2->arrival + GetService2_cloud();
-                if(task2_completion_cloud == INFINITO   || task2_completion_cloud > t2->completion)
+                if(task2_completion_cloud > t2->completion)
                 {
                     task2_completion_cloud= t2->completion;
                 }
