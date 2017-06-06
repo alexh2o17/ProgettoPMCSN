@@ -61,8 +61,8 @@ int main()
     FILE *file_Througput;
     FILE *file_T_Sistema;
 
-    file_Througput=openFile("Througput.txt");
-    file_T_Sistema=openFile("T_Sistema.txt");
+    file_Througput=openFile("Througput.txt","a+");
+    file_T_Sistema=openFile("T_Sistema.txt","a+");
 
 
     double percentuale_elab_task = 0; //Percentuale di job elaborato sulla cloudlet prima di essere spostato sul cloud
@@ -342,4 +342,7 @@ int main()
 
     fprintf(file_Througput,"%f\n", thrSistema);
     fprintf(file_T_Sistema,"%f\n", t_Risp_Sis);
+
+    fclose(file_Througput);
+    fclose(file_T_Sistema);
 }

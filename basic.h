@@ -15,5 +15,6 @@
 #define S 				20
 #define N				20
 #define SETUP 			0.8
+#define ALPHA           0.05
 
 
