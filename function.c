@@ -69,7 +69,14 @@ double  Min( double a, double b, double c, double d, double e, double f)
 	return min;
 }
 
-
-
+FILE *openFile(char *name){
+    FILE *f;
+    f = fopen(name, "a+");
+    if(f == NULL) {
+        perror("Errore nell'apertura del file\n");
+        exit(EXIT_FAILURE);
+    }
+    return f;
+}
 
 

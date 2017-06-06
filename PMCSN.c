@@ -58,6 +58,11 @@ int main()
     double t_Risp_Cloudlet; //Tempo di risposta medio della Cloudlet
     double t_Risp_Cloud;    //Tempo di rispost medio del Cloud
     double t_old;
+    FILE *file_Througput;
+    FILE *file_T_Sistema;
+
+    file_Througput=openFile("Througput.txt");
+    file_T_Sistema=openFile("T_Sistema.txt");
 
 
     double percentuale_elab_task = 0; //Percentuale di job elaborato sulla cloudlet prima di essere spostato sul cloud
@@ -137,12 +142,12 @@ int main()
 
 
                 percentuale_elab_task = (t_current - p->arrival)/(p->completion - p->arrival); //Tempo per cui il task � stato gi� elaborato diviso il tempo di servizio
-                if(percentuale_elab_task>1){
-                    printf("peleb: %f\n", percentuale_elab_task);
-                    printf("current: %f\n",t_current);
-                    printf("arrival: %f\n",p->arrival);
-                    printf("completion: %f\n",p->completion);
-                }
+//                if(percentuale_elab_task>1){
+//                    printf("peleb: %f\n", percentuale_elab_task);
+//                    printf("current: %f\n",t_current);
+//                    printf("arrival: %f\n",p->arrival);
+//                    printf("completion: %f\n",p->completion);
+//                }
 
                 num_task2_compl_cloudlet += percentuale_elab_task;
                 p->perc_rim = 1 - percentuale_elab_task;
@@ -292,17 +297,17 @@ int main()
         }
         task_rimanenti= task1_rim_cloudlet+task1_rim_cloud+task2_rim_cloudlet+task2_rim_cloud;//controllare bene
         thrSistema = (num_task1_compl_cloud + num_task2_compl_cloud + num_task1_compl_cloudlet + num_task2_compl_cloudlet)/t_current;
-        printf("%f\n",thrSistema);
+       // printf("%f\n",thrSistema);
     }
-    printf("task rimanenti: %d\n",task_rimanenti);
+    //printf("task rimanenti: %d\n",task_rimanenti);
     //Task che hanno attraversato il colud e la cloudlet
     num_task_cloud = num_task1_cloud + num_task2_cloud;
     num_task_cloudlet = num_task1_cloudlet + num_task2_cloudlet;
     thrSistema = (num_task1_compl_cloud + num_task2_compl_cloud + num_task1_compl_cloudlet + num_task2_compl_cloudlet)/t_current;
     printf("Throughput: %f\n", thrSistema);
-    printf("Num task cloud: %d\n", num_task1_cloud);
-    printf("Num task cloudlet: %d\n", num_task_cloudlet);
-    printf("tempo finale: %f\n", t_current);
+    //printf("Num task cloud: %d\n", num_task1_cloud);
+    //printf("Num task cloudlet: %d\n", num_task_cloudlet);
+    //printf("tempo finale: %f\n", t_current);
 //        double response_time=t_current/(num_task1_compl_cloud + num_task2_compl_cloud + num_task1_compl_cloudlet + num_task2_compl_cloudlet);
 //        printf("tempo di risposta: %f", response_time);
     thrCloudlet=(num_task1_compl_cloudlet+num_task2_compl_cloudlet)/t_current;
@@ -323,21 +328,24 @@ int main()
     double P1= ((double) num_task_cloud/(num_task_cloud+num_task_cloudlet));
     double P2= ((double) num_task_cloudlet/(num_task_cloud+num_task_cloudlet));
 
-    printf("P1: %f\n", P1);
-    printf("P2: %f\n", P2);
-    printf("# job medi clet: %f\n", area_cloudlet/t_current);
+    //printf("P1: %f\n", P1);
+    //printf("P2: %f\n", P2);
+//    printf("# job medi clet: %f\n", area_cloudlet/t_current);
     if((area_cloudlet/t_current)>20){
         printf("\n\n\n non va bene \n\n\n");
     }
-    printf("# job medi cloud: %f\n", area_cloud/t_current);
-    printf("# job medi Sistema: %f\n", area_tot/t_current);
+//    printf("# job medi cloud: %f\n", area_cloud/t_current);
+//    printf("# job medi Sistema: %f\n", area_tot/t_current);
 
 //       printf("# job medi tot: %f\n", area_tot/t_current);
     thrCloud=(num_task1_compl_cloud+num_task2_compl_cloud)/t_current;
     t_Risp_Sis= (area_tot/t_current)/thrSistema;
     t_Risp_Cloudlet=(area_cloudlet/t_current)/thrCloudlet;
     t_Risp_Cloud=(area_cloud/t_current)/thrCloud;
-    printf("Tempo di risposta: %f\n\n", t_Risp_Sis);
-    printf("Tempo di risposta della Cloudlet: %f\n",t_Risp_Cloudlet);
-    printf("Tempo di risposta della Cloud: %f\n",t_Risp_Cloud);
+//    printf("Tempo di risposta: %f\n\n", t_Risp_Sis);
+//    printf("Tempo di risposta della Cloudlet: %f\n",t_Risp_Cloudlet);
+//    printf("Tempo di risposta della Cloud: %f\n",t_Risp_Cloud);
+
+    fprintf(file_Througput,"%f\n", thrSistema);
+    fprintf(file_T_Sistema,"%f\n", t_Risp_Sis);
 }
