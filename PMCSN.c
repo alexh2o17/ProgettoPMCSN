@@ -318,6 +318,7 @@ int main()
 //        double ro1= (Px*P1*3.25)/0.45;
 //        double ro2= (Px*P1*6.25)/0.30;
 //
+//
     double P1= ((double) num_task_cloud/(num_task_cloud+num_task_cloudlet));
     double P2= ((double) num_task_cloudlet/(num_task_cloud+num_task_cloudlet));
 
