@@ -12,6 +12,8 @@ void CalcolaConfidenza(double media, double devStand, int N, int alpha)
 }
 
 int main(){
+	double ThroughputMedio;
+	double sommaThroughputMedio;
 	FILE *fp;
 	int n=0;
 
