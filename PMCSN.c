@@ -317,13 +317,6 @@ int main()
 //        double Px= ((double) num_task_cloudlet/(num_task_cloudlet+num_task_cloud));
 //        double ro1= (Px*P1*3.25)/0.45;
 //        double ro2= (Px*P1*6.25)/0.30;
-//        double n1=ro1/(1-ro1);
-//        double n2=ro2/(1-ro2);
-//        double nx=n1+n2;
-//        double trispclet= 20/thrClet;
-//        double trispclet1= P1*2.2222+P2*3.3333;
-//        printf("risposta: %f\n rispostainP: %f\n", trispclet,trispclet1);
-//        printf("P1: %f\n P2: %d\n", n1,num_task_cloudlet);
 //
     double P1= ((double) num_task_cloud/(num_task_cloud+num_task_cloudlet));
     double P2= ((double) num_task_cloudlet/(num_task_cloud+num_task_cloudlet));
