@@ -3,6 +3,8 @@
 #include <math.h>
 #include <time.h>
 #include <errno.h>
+#include <string.h>
+
 
 #include "rngs.h"
 #include "rvms.h"

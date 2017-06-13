@@ -75,8 +75,9 @@ int main(int argc, char* argv[])
     double util_cloud; //Utiizzazione cloud
     double t_old;
     
-    FILE *file_Throughput = openFile("Throughput.txt", "a+");;
-    FILE *file_T_Sistema = openFile("T_Sistema.txt", "a+");
+    FILE *file_Throughput = openFile("Throughput", "a+");
+    FILE *file_T_Sistema = openFile("T_Risposta", "a+");
+    FILE *file_Utilizzazione = openFile("Utilizzazione", "a+");
 
     
     while(task_rimanenti > 0 || task1_arrival < STOP ||task2_arrival < STOP) //Il sistema elabora task finchè ne restano al suo interno e la simulazione non termina
@@ -325,6 +326,8 @@ int main(int argc, char* argv[])
 
     fprintf(file_Throughput, "%f\n", thrSistema);
     fprintf(file_T_Sistema, "%f\n", t_risp_sis);
+    fprintf(file_Utilizzazione, "%f\n", util_sistema);
     fclose(file_Throughput);
     fclose(file_T_Sistema);
+    fclose(file_Utilizzazione);
 }
