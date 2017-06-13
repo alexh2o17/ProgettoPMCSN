@@ -1,6 +1,8 @@
 
 import os
 import time
-for i in range (400):
+for i in range (10):
 	 time.sleep(1)
-	 os.system("/Users/macbookproretina/ClionProjects/ProgettoPMCSN/cmake-build-debug/PMCSN")
+	 os.system("/home/famiglia/ProgettoPMCSN/prova_out")
+os.system("/home/famiglia/ProgettoPMCSN/confidenza_out")
+

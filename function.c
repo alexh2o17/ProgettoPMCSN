@@ -79,4 +79,52 @@ FILE *openFile(char *name, char *mode){
     return f;
 }
 
+void CalcolaConfidenza(double media, double devStand, int n, int alpha)
+{
+  double tstar = idfStudent(n-1, 1-(alpha/2));
+  double inf = media - ((tstar*devStand)/sqrt(n-1));/*calcolo estremo inferiore dell'intervallo*/
+  double sup = media + ((tstar*devStand)/sqrt(n-1));/*calcolo estremo superiore dell'intervallo*/
+  double ampiezzaInt = (sup - inf);
+  printf("....................Intervallo di Confidenza....................\n");
+  printf("(%f,%f) centrato in %f e di ampiezza %f\n", inf, sup, media, ampiezzaInt);
+}
 
+void LetturaConfidenza(char* file_name)
+{
+  double dato;
+  double index_medio = 0;
+  double somma_index_medio = 0;
+  int n = 0;
+  FILE *fp = openFile(file_name,"r");
+
+  while(!feof(fp))
+  {
+    fscanf(fp, "%lf", &dato);
+    if(n == 0)
+    {
+      index_medio = dato;
+      n++;
+    }
+    else
+    {
+      n++;
+      somma_index_medio = somma_index_medio + (dato - index_medio)*(dato - index_medio) * (n - 1.0)/n;
+      index_medio = index_medio + (dato - index_medio)/n;
+
+    }
+  }
+  fclose(fp);
+  printf("         **%s medio del sistema**         \n", file_name);
+  CalcolaConfidenza(index_medio, sqrt(somma_index_medio/n), n, ALPHA);
+  printf("%s medio........................................= %lf\n", file_name, index_medio);
+  printf("Deviazione standard...................................= %lf\n", sqrt(somma_index_medio/n));
+  printf("\n");
+  if(file_name.equals("Throughput")
+    FILE *fp_index = openFile("Confidenza_throughput", "a+");
+  else if(file_name.equals("T_risposta")
+    FILE *fp_index = openFile("Confidenza_t_risposta", "a+");
+  else if(file_name.equals("Utilizazzione")
+    FILE *fp_index = openFile("Confidenza_utilizzazione", "a+");
+
+    
+}

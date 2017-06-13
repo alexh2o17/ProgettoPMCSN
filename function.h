@@ -10,3 +10,4 @@ double GetService2_cloudlet();
 
 double Min(double a, double b, double c,double d, double e, double f);
 FILE *openFile(char *name, char *mode);
+void CalcolaConfidenza(double media, double devStand, int n, int alpha);

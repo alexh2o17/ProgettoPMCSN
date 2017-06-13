@@ -10,8 +10,8 @@
 #include "lista.h"
 
 #define START 			0.0					/* tempo inizio simulazione */
-#define STOP   			500.0				/* tempo stop simulazione*/
-#define INFINITO 		(100.0 * STOP)
+#define STOP   			20000.0				/* tempo stop simulazione*/
+#define INFINITO 		10000000.0
 #define S 				20
 #define N				20
 #define SETUP 			0.8
