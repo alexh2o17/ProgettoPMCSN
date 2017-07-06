@@ -131,11 +131,11 @@ void LetturaConfidenza(char* file_name)
     }
   }
   fclose(fp);
-  printf("         **%s medio del sistema**         \n", file_name);
+//  printf("         **%s medio del sistema**         \n", file_name);
   CalcolaConfidenza(index_medio, sqrt(somma_index_medio/n), n, ALPHA, file_name);
-  printf("%s medio........................................= %lf\n", file_name, index_medio);
-  printf("Deviazione standard...................................= %lf\n", sqrt(somma_index_medio/n));
-  printf("\n");
+//  printf("%s medio........................................= %lf\n", file_name, index_medio);
+//  printf("Deviazione standard...................................= %lf\n", sqrt(somma_index_medio/n));
+//  printf("\n");
 
 
 

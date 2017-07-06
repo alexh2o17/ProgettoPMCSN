@@ -2,7 +2,6 @@
 
 int main()
 {
-
     int j;
     int k = 1000;
 	int n = 10000;
@@ -48,7 +47,7 @@ int main()
 
 	    printf("v1: %f\n", v1);
 	    printf("v2: %f\n", v2);
-	    printf("v: %f\n", v);
+	    printf("v: %6.2f\n", v);
 	    fprintf(fp, "%f\n", v);
 	     
 

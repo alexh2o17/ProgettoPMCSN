@@ -1,7 +1,7 @@
 #include"basic.h"
 
 #define MODULUS    2147483647 /* DON'T CHANGE THIS VALUE                  */
-#define MULTIPLIER 48271      /* DON'T CHANGE THIS VALUE                  */
+#define MULTIPLIER 53374     /* DON'T CHANGE THIS VALUE                  */
 #define CHECK      399268537  /* DON'T CHANGE THIS VALUE                  */
 #define STREAMS    256        /* # of streams, DON'T CHANGE THIS VALUE    */
 #define A256       22925      /* jump multiplier, DON'T CHANGE THIS VALUE */

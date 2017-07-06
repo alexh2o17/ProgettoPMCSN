@@ -30,6 +30,7 @@ void remove_first_task(struct task**ppos)
 {
     struct task *d = *ppos;
     *ppos = d-> next_task;
+    free(d);
 }
 
 void insert_sorted_list( struct task *new, struct task **pnext)
@@ -66,6 +67,7 @@ void remove_central_task(struct task *r,struct task **pnext)
     for( p = *pnext; p!=NULL; pnext = &p->next_task, p=p->next_task) {
         if (p->next_task == r) {
             p->next_task = r->next_task;
+            free(r);
             return;
         } else if (p == r) {
             remove_first_task(pnext);
